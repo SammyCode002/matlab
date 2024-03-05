@@ -1,21 +1,18 @@
 #!/usr/bin/env bash
 
-<%-
-  # Use the current working directory or a default
-  working_dir = '${PWD}' # This is the directory from which the script is executed
-%>
-
+# Load modules
 module purge
-module load system/matlab-proxy tools/matlab
+module load system/matlab-proxy   tools/matlab
 
-# Set up environment variables for the MATLAB proxy application
-export MWI_APP_PORT="$port"
-export MWI_APP_HOST="0.0.0.0"
-export MWI_ENABLE_TOKEN_AUTH="True"
-export MWI_AUTH_TOKEN="$password"
+# Set working directory to home directory or a specified path
+cd "${HOME}"
 
-# Change to the working directory
-cd "<%= working_dir %>"
+# start server
+env MWI_APP_PORT="$port" \
+    MWI_APP_HOST="0.0.0.0" \
+    MWI_ENABLE_TOKEN_AUTH="True" \
+    MWI_AUTH_TOKEN="$password" \
+    matlab-proxy-app
 
-# Launch the MATLAB Web Desktop using the MATLAB proxy
-matlab-proxy-app
+# Optionally, set the MATLAB license file if required
+# export MATLAB_LICENSE_FILE=/path/to/license.lic
