@@ -1,0 +1,7 @@
+<form id="connect_to_matlab" action="/rnode/<%= host %>/<%= port %>" method="post" target="_blank">
+  <input type="hidden" name="csrf-token" value="<%= csrf_token %>"/>
+  <button class="btn btn-primary" type="submit">Connect to MATLAB</button>
+</form>
+<script type="text/javascript">
+  document.getElementById('connect_to_matlab').submit();
+</script>

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+<%-
+  # Use the current working directory or a default
+  working_dir = '${PWD}' # This is the directory from which the script is executed
+%>
+
+module purge
+module load system/matlab-proxy tools/matlab
+
+# Set up environment variables for the MATLAB proxy application
+export MWI_APP_PORT="$port"
+export MWI_APP_HOST="0.0.0.0"
+export MWI_ENABLE_TOKEN_AUTH="True"
+export MWI_AUTH_TOKEN="$password"
+
+# Change to the working directory
+cd "<%= working_dir %>"
+
+# Launch the MATLAB Web Desktop using the MATLAB proxy
+matlab-proxy-app

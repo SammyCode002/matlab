@@ -1,0 +1,17 @@
+#!/bin/bash
+# Prepare the environment for MATLAB
+[[ $(type -t module) == "function" ]] && export -f module
+
+# Find an available port
+port=$(find_port '' 8881 8909)
+
+# Generate and export a password for MATLAB web authentication, if applicable
+password="$(create_passwd 16)"
+export MATLAB_WEB_PASSWORD="${password}"
+
+# Optional: Generate a CSRF token for web forms
+csrf_token=$(openssl rand -hex 32)
+export CSRF_TOKEN="${csrf_token}"
+
+
+
