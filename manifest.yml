@@ -1,0 +1,7 @@
+name: MATLAB
+category: Interactive Apps
+subcategory: Servers
+role: batch_connect
+icon: icon.png
+description: Run MATLAB interactively on the KOA HPC cluster
+Koa: http://datascience.hawaii.edu/hpc/
