@@ -1,7 +1,10 @@
-<form id="connect_to_matlab" action="/rnode/<%= host %>/<%= port %>" method="post" target="_blank">
-  <input type="hidden" name="csrf-token" value="<%= csrf_token %>"/>
-  <button class="btn btn-primary" type="submit">Connect to MATLAB</button>
+<%-
+  # Generate form ID based on host and port for unique identification
+  form_id = Digest::SHA1.hexdigest("--" + host.to_s + "--" + port.to_s + "--")
+-%>
+
+<form id="<%= form_id %>" action="/rnode/<%= host %>/<%= port %>/?mwi_auth_token=<%= password %>" method="post" target="_blank">
+  <button class="btn btn-primary" type="submit">
+    <i class="fa fa-cogs"></i> Connect to MATLAB
+  </button>
 </form>
-<script type="text/javascript">
-  document.getElementById('connect_to_matlab').submit();
-</script>
