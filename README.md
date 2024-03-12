@@ -18,9 +18,6 @@ This MATLAB Interactive App provides a web-based MATLAB environment, facilitatin
 
 - Utilize the computational power of the KOA HPC Cluster directly from your browser.
 
-- Select different MATLAB versions available on KOA HPC according to your project needs.
-
-
 
 ## Prerequisites
 
