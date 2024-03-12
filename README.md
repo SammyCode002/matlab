@@ -36,3 +36,6 @@ This MATLAB Interactive App provides a web-based MATLAB environment, facilitatin
 1. Log in to the KOA HPC Cluster and navigate to your project directory.
 
 2. Clone the repository to your local directory on the cluster:
+
+#License
+MATLAB's logo is a trademark or registered trademark of MathWorks, Inc.
